@@ -14,6 +14,7 @@ import psycopg2
 
 from config.database import obtener_conexion
 from config_templates import templates 
+from app import templates
 
 
 from schemas.estudiante import EstudianteActualizar, RecuperarRequest, ActualizarPasswordRequest, MinijuegoRequest, RespuestaEstudianteCompletar
