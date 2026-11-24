@@ -38,8 +38,8 @@ class ActualizarPasswordRequest(BaseModel):
 
 # Definición de rutas base de directorios
 BASE_DIR = Path(__file__).resolve().parent  
-TEMPLATES_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "Frontend", "templates"))
-STATIC_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "Frontend", "static"))
+TEMPLATES_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "Frontend", "templates"))
+STATIC_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "Frontend", "static"))
 STORAGE_PHYSICAL_DIR = os.path.abspath(os.path.join(BASE_DIR, "storage"))
 
 print(f"📂 Buscando templates en: {TEMPLATES_DIR}")
