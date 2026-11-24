@@ -1,21 +1,19 @@
+import os
 import psycopg2
-from contextlib import contextmanager
+from dotenv import load_dotenv
 
-@contextmanager
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://user:pass@localhost/db")
+
 def obtener_conexion():
-    conn = None
+    """Conecta con la base de datos local de PostgreSQL 12.4-1."""
     try:
-        conn = psycopg2.connect(
-            dbname="lynko",
-            user="postgres",
-            password="1234",
-            host="localhost",
-            port="5432"
+        conexion = psycopg2.connect(
+            DATABASE_URL,
+            client_encoding='utf8'
         )
-        yield conn  
+        return conexion
     except Exception as e:
-        print(f"Error de conexión a PostgreSQL: {e}")
-        raise e  
-    finally:
-        if conn:
-            conn.close()  
+        print(f"Error de conexión a PostgreSQL local: {e}")
+        raise e
