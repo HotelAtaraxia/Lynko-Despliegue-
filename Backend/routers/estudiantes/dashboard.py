@@ -13,7 +13,7 @@ import re
 import psycopg2
 
 from config.database import obtener_conexion
-from config_templates import templates 
+from config_templates import templates
 from app import templates
 
 
