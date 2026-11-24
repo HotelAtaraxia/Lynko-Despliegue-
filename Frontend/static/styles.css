@@ -348,9 +348,10 @@
             font-size: 45px;
         }
 
-        .math-bg { background-color: #FFC966; background-image: url(https://cdn.phototourl.com/member/2026-06-27-583233bf-4a1d-4970-990f-1d0085dc7d33.png);}
-        .spanish-bg { background-color: #8DE08D; background-image: url(https://cdn.phototourl.com/member/2026-06-27-baf14226-a107-4183-9e83-22916f014a7b.png); }
-        .bio-bg { background-color: #B39DDB; background-image: url(https://cdn.phototourl.com/member/2026-06-27-ae6b3f9e-ca67-4c63-8399-8b0d12920421.png); }
+        .math-bg { background-color: #FFC966; background-image: url(https://cdn.phototourl.com/member/2026-06-27-583233bf-4a1d-4970-990f-1d0085dc7d33.png);background-repeat: no-repeat;background-size: cover;background-position: center;}
+        .spanish-bg { background-color: #8DE08D; background-image: url(https://cdn.phototourl.com/member/2026-06-27-baf14226-a107-4183-9e83-22916f014a7b.png);background-repeat: no-repeat;background-size: cover;background-position: center; }
+        .bio-bg { background-color: #B39DDB; background-image: url(https://cdn.phototourl.com/member/2026-06-27-ae6b3f9e-ca67-4c63-8399-8b0d12920421.png);background-repeat: no-repeat;background-size: cover;background-position: center; }
+        .bie-bg { background-color: #91d7ff; background-image: url(https://cdn.phototourl.com/free/2026-09-09-618c539f-f13d-4ee1-a210-1b772887f9ac.png);background-repeat: no-repeat;background-size: cover;background-position: center; }
 
         .subject-info {
             padding: 20px;
@@ -746,4 +747,57 @@
         .status-available { background: #E8F5E9; color: #2E7D32; }
         .status-completed { background: #E3F2FD; color: #1565C0; }
 
+        .card-clickeable {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-clickeable:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(234, 88, 12, 0.12);
+}
+
+
+.grid-memorama {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+.carta-memorama {
+    width: 80px;
+    height: 100px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.carta-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.carta-memorama.volteada .carta-inner {
+    transform: rotateY(180deg);
+}
+.carta-front, .carta-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.carta-front {
+    background-color: #ff9800;
+    color: white;
+    font-weight: bold;
+}
+.carta-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    border: 2px solid #ddd;
+}
         

@@ -1,16 +1,21 @@
 import psycopg2
-from psycopg2.extras import RealDictCursor
+from contextlib import contextmanager
 
+@contextmanager
 def obtener_conexion():
+    conn = None
     try:
-        return psycopg2.connect(
+        conn = psycopg2.connect(
+            dbname="lynko",
+            user="postgres",
+            password="1234",
             host="localhost",
-            database="lynko",         
-            user="postgres",          
-            password="1234",        
             port="5432"
         )
+        yield conn  
     except Exception as e:
-        print(f"❌ Error crítico al conectar con PostgreSQL: {e}")
-        return None
-    
+        print(f"Error de conexión a PostgreSQL: {e}")
+        raise e  
+    finally:
+        if conn:
+            conn.close()  

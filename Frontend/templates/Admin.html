@@ -14,7 +14,7 @@
         <div class="sidebar-content">
             <div class="logo-container">
                 <div class="logo-placeholder">
-                    <img src="https://cdn.phototourl.com/free/2026-06-08-2a556232-b138-49a7-a830-66b7ce8a4f19.png" alt="Lynko Logo">
+                    <img src="https://cdn.phototourl.com/member/2026-11-10-594097c0-55fe-4b70-bd1f-530fab166429.png" alt="Lynko Logo" style="width: 100px; height: auto;">
                 </div>
                 <p class="logo-slogan">Panel de Control Central</p>
             </div>
@@ -23,8 +23,10 @@
                 <ul class="nav-menu">
                     <li class="nav-item active"><a href="/admin"><i>📊</i> Inicio</a></li>
                     <li class="nav-item"><a href="/admin/estudiantes"><i>👥</i> Alumnos y Ranking</a></li>  
-                    <li class="nav-item"><a href="/admin/nuevas-preguntas"><i>➕</i> Crear Preguntas</a></li>   
+                    <li class="nav-item"><a href="/admin/nuevas-preguntas"><i>➕</i> Crear Preguntas</a></li>
                     <li class="nav-item"><a href="/admin/preguntas"><i>📝</i> Banco de Preguntas</a></li>   
+                    <li class="nav-item "><a href="/admin/materias-actividades"><i>🎮</i> Gestión de Materias</a></li>   
+                    <li class="nav-item"><a href="/admin/retos/crear"><i>🎉</i> Retos Semanales</a></li>   
                 </ul>
             </nav>
         </div>
@@ -73,9 +75,9 @@
                         <tbody>
                             {% for pregunta in ultimas_preguntas %}
                             <tr>
-                                <td>#{{ pregunta[0] }}</td>
-                                <td><span class="status-badge" style="background: #ffe0b2; color: #e65100; font-weight: 700; padding: 4px 8px; border-radius: 6px;">{{ pregunta[1] }}</span></td>
-                                <td>{{ pregunta[2] }}</td>
+                                <td>#{{ pregunta.id_pregunta }}</td>
+                                <td><span class="status-badge" style="background: #ffe0b2; color: #e65100; font-weight: 700; padding: 4px 8px; border-radius: 6px;">{{ pregunta.materia }}</span></td>
+                                <td>{{ pregunta.pregunta }}</td>
                                 <td>
                                     <a href="/admin/preguntas" class="btn-table-edit" style="text-decoration: none; background-color: #f39121; color: white; display: inline-block; padding: 5px 10px; font-size: 12px;">Gestionar Banco</a>
                                 </td>

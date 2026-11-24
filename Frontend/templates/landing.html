@@ -9,40 +9,63 @@
 </head>
 <body>
 
+
     <header id="main-header">
         <div class="logo-container" id="header-logo-box">   
-            <img src="https://cdn.phototourl.com/free/2026-06-08-2a556232-b138-49a7-a830-66b7ce8a4f19.png" alt="Lynko Logo" id="lynko-nav-logo">
-            <h1 class="logo-texto" style="font-family: 'Fredoka', sans-serif;">Lynko</h1>
+            <a href="/" class="logo-link">
+                <img src="https://cdn.phototourl.com/member/2026-11-10-594097c0-55fe-4b70-bd1f-530fab166429.png" alt="Lynko Logo" id="lynko-nav-logo">
+            </a>
         </div>
+    
         <nav class="nav-links" id="header-navigation">
-            <a href="/login" class="btn-secondary">Iniciar Sesión 🚪</a>
-            <a href="/registro" class="btn-primary">Registrarse ✨</a>
+            <a href="/" class="nav-item-link">Inicio</a>
+            <a href="#demo-jugabilidad-section" class="nav-item-link">Función</a>
+            <a href="#preview-header" class="nav-item-link">Prueba</a>
+            <a href="#main-footer" class="nav-item-link">Personajes</a>
         </nav>
+
+        <div class="header-actions">
+            <a href="/registro" class="btn-primary">🐾 Únete</a>
+        </div>
     </header>
 
     <main id="hero-section">
-        <div class="hero-contenido" id="hero-left-side">
-            <h2 class="hero-titulo" style="font-family: 'Fredoka', sans-serif;">¡Aprender nunca fue tan divertido! 🚀</h2>
-            <p class="hero-subtitulo">Acompaña a nuestro lince educativo en una aventura llena de matemáticas, español, biología y grandes recompensas en medallas virtuales.</p>
-            <div class="hero-botones" id="hero-action-box">
-                <a href="/registro" class="btn-cta">¡Empezar Aventura Gratis! 🐾</a>
-            </div>
+    <div class="hero-contenido" id="hero-left-side">
+        <h2 class="hero-titulo" style="font-family: 'Fredoka', sans-serif;">¡Aprender nunca fue tan divertido! 🚀</h2>
+        <p class="hero-subtitulo">Acompaña a nuestro lince educativo en una aventura llena de matemáticas, español, biología y grandes recompensas en medallas virtuales.</p>
+        <div class="hero-botones" id="hero-action-box">
+            <a href="/registro" class="btn-cta">¡Empezar Aventura Gratis! 🐾</a>
         </div>
-        <div class="hero-imagen-div" id="hero-mascot-wrapper">
-            </div>
-    </main>
+    </div>
+</main>
 
-    <section id="interactive-preview-section" style="background-color: #FFF8F0; padding: 5px 0;">
-        <div id="preview-container" class="admin-card" style="max-width: 800px; margin: 40px auto; border: 3px solid #FFBE98; border-radius: 25px; background: #FFFFFF; padding: 30px; text-align: center; box-shadow: 0 10px 25px rgba(230, 110, 0, 0.08);">
+<!-- ==========================================
+   SECCIÓN DE VISTA PREVIA / JUGABILIDAD INTERNA
+   ========================================== -->
+<section id="demo-jugabilidad-section">
+    <div class="demo-bg-wrapper">
+        <div class="section-title-container" style="margin-bottom: 30px;">
+            <h3 style="font-family: 'Fredoka', sans-serif; font-size: 32px; color: #2D3748;">🎮 Así se ve la aventura por dentro</h3>
+            <p style="color: #718096; font-size: 16px; margin-top: 8px;">Explora dinámicas divertidas diseñadas para mantener su atención al 100%</p>
+        </div>
+
+        <!-- Contenedor del video o simulador de jugabilidad -->
+        <div class="video-container-landing">
+            <video controls autoplay muted loop class="landing-gameplay-video">
+                <source src="https://videotourl.com/videos/1788475964168-d05e08f0-aace-4450-a0e2-aa9038fcab02.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+        </div>
+    </div>
+</section>
             
 
 <div id="preview-header">
     <span class="quiz-icon">🎮</span>
     <h3 class="quiz-title">¡Haz una pequeña prueba!</h3>
     <p class="quiz-subtitle">Demuestra tu talento resolviendo este reto rápido del lince:</p>
-</div>
 
-<div class="quiz-container">
+    <div class="quiz-container">
     
     <button id="btn-quiz-prev" class="quiz-nav-btn" onclick="cambiarPregunta(-1)">◀</button>
 
@@ -65,9 +88,9 @@
 
     <button id="btn-quiz-next" class="quiz-nav-btn" onclick="cambiarPregunta(1)">▶</button>
 </div>
+</div>
 
-            <p style="font-size: 13px; color: #888; font-weight: 600;">✨ ¡En la plataforma acumulas rachas diarias de estudio y desbloqueas avatares!</p>
-        </div>
+
     </section>
 
     <section id="features-section">

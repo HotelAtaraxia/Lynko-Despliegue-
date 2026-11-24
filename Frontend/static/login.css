@@ -8,16 +8,21 @@
         }
 
         body {
-            background-color: var(--bg-main);
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
+    background-image: url('https://cdn.phototourl.com/member/2026-11-10-adf4db3a-8524-4f3e-854b-cf8a20065617.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
 
         
         body::before, body::after {
@@ -33,18 +38,33 @@
         body::after { width: 400px; height: 400px; bottom: -150px; right: -100px; }
 
         .auth-container {
-            background: var(--card-bg);
-            width: 100%;
-            max-width: 450px;
-            padding: 40px 35px;
-            border-radius: 30px;
-            border: 1px solid #F0F0F0;
-            box-shadow: 0 10px 30px rgba(255, 122, 0, 0.05);
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
+    background: rgba(255, 255, 255, 0.493);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 35px;
+
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 8px 32px rgba(40, 25, 15, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.7);
+
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    }
+
+
+.auth-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
         .auth-logo {
             width: 70px;
             height: 70px;
@@ -136,3 +156,125 @@
         .auth-footer a:hover {
             text-decoration: underline;
         }
+
+        #modalRecuperacion {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    backdrop-filter: blur(3px);
+}
+
+#modalRecuperacion.hidden {
+    display: none;
+}
+
+#modalRecuperacion .modal-contenido {
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    max-width: 448px;
+    position: relative;
+}
+
+#modalRecuperacion .btn-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: #9ca3af;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+#modalRecuperacion .btn-cerrar:hover {
+    color: #4b5563;
+}
+
+#modalRecuperacion h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #1e293b;
+}
+
+#modalRecuperacion p {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 16px;
+}
+
+#modalRecuperacion input[type="email"],
+#modalRecuperacion input[type="password"] {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    outline: none;
+    box-sizing: border-box;
+    transition: ring 0.2s ease, border-color 0.2s ease;
+}
+
+#modalRecuperacion input[type="email"]:focus,
+#modalRecuperacion input[type="password"]:focus {
+    border-color: #f97316;
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
+}
+
+#modalRecuperacion button[type="submit"] {
+    width: 100%;
+    background-color: #f97316;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#modalRecuperacion button[type="submit"]:hover {
+    background-color: #ea580c;
+}
+
+#modalRecuperacion .btn-secundario {
+    background-color: #e5e7eb;
+    color: #1f2937;
+    font-weight: bold;
+    padding: 8px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#modalRecuperacion .btn-secundario:hover {
+    background-color: #d1d5db;
+}
+
+#modalRecuperacion .text-center {
+    text-align: center;
+}
+
+#modalRecuperacion .py-4 {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#modalRecuperacion .icono-grande {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+#modalRecuperacion .hidden {
+    display: none;
+}

@@ -9,7 +9,7 @@
     --border-radius: 20px;
 }
 
-/* ESTRUCTURA  */
+
 .admin-header {
     margin-bottom: 25px;
     display: flex;
@@ -29,7 +29,7 @@
     margin-top: 4px;
 }
 
-/* TARJETA CONTENEDORA  */
+
 .admin-card {
     background: var(--card-bg);
     border-radius: var(--border-radius);

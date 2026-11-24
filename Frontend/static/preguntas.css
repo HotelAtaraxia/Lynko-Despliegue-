@@ -76,3 +76,66 @@
             font-weight: 700; 
             font-size: 14px;
         }
+        
+        /* Contenedor general */
+.cozy-options-container {
+    background: #fffbf0;
+    border: 2px dashed #fed7aa;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.cozy-title {
+    color: #ea580c;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.cozy-subtitle {
+    color: #78716c;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Fila que une el radio y el input perfectamente en horizontal */
+.cozy-option-row {
+    display: flex !important;
+    align-items: center !important;
+    background: #ffffff !important;
+    border: 2px solid #e7e5e4 !important;
+    border-radius: 12px !important;
+    padding: 10px 14px !important;
+    margin-bottom: 12px !important;
+    gap: 12px !important; /* Espacio exacto entre el radio y la caja */
+    box-sizing: border-box !important;
+}
+
+.cozy-option-row:focus-within {
+    border-color: #ea580c !important;
+    box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1) !important;
+}
+
+/* Radio button limpio */
+.cozy-radio {
+    accent-color: #ea580c !important;
+    width: 20px !important;
+    height: 20px !important;
+    min-width: 20px !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+}
+
+/* Caja de texto transparente ocupando el resto del espacio */
+.cozy-text-input {
+    border: none !important;
+    outline: none !important;
+    width: 100% !important;
+    font-size: 14px !important;
+    color: #292524 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}

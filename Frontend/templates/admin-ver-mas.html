@@ -15,17 +15,21 @@
         <div class="sidebar-content" id="sidebar-wrapper">
             <div class="logo-container" id="logo-box">
                 <div class="logo-placeholder" id="logo-img-wrapper">
-                    <img src="https://cdn.phototourl.com/free/2026-06-08-2a556232-b138-49a7-a830-66b7ce8a4f19.png" alt="Lynko Logo">
+                    <img src="https://cdn.phototourl.com/member/2026-11-10-594097c0-55fe-4b70-bd1f-530fab166429.png" alt="Lynko Logo" style="width: 100px; height: auto;">
                 </div>
                 <p id="sidebar-title">Panel de Control</p>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="/admin"><i>📊</i> Inicio</a></li>
-                <li class="nav-item"><a href="/admin/estudiantes"><i>👥</i> Alumnos y Ranking</a></li>  
-                <li class="nav-item"><a href="/admin/nuevas-preguntas"><i>➕</i> Crear Preguntas</a></li>   
-                <li class="nav-item"><a href="/admin/preguntas"><i>📝</i> Banco de Preguntas</a></li>   
-            </ul>
-        </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="/admin"><i>📊</i> Inicio</a></li>
+                    <li class="nav-item active"><a href="/admin/estudiantes"><i>👥</i> Alumnos y Ranking</a></li>  
+                    <li class="nav-item"><a href="/admin/nuevas-preguntas"><i>➕</i> Crear Preguntas</a></li>
+                    <li class="nav-item"><a href="/admin/preguntas"><i>📝</i> Banco de Preguntas</a></li>   
+                    <li class="nav-item "><a href="/admin/materias-actividades"><i>🎮</i> Gestión de Materias</a></li>   
+                    <li class="nav-item"><a href="/admin/retos/crear"><i>🎉</i> Retos Semanales</a></li>   
+                </ul>
+            </nav>
+           </div>
         <div style="padding: 20px;" id="logout-wrapper">
             <a href="/login" style="color: white; text-decoration: none; font-weight: 700; font-size: 14px;">🚪 Cerrar Sesión</a>
         </div>
@@ -74,7 +78,7 @@
         <div class="admin-layout" id="layout-grid" style="display: grid; grid-template-columns: 1.8fr 1.2fr; gap: 20px;">
             
             <section class="admin-card" id="history-section">
-                <h3 style="font-family: 'Fredoka', sans-serif;"><i>📋</i> Historial de Actividades (Preguntas)</h3>
+                <h3 style="font-family: 'Fredoka', sans-serif;"><i>📋</i> Historial de Actividades (Exámenes)</h3>
                 
                 <div class="table-container" id="table-wrapper">
                     <table class="modern-table" id="expediente-table">
@@ -121,33 +125,41 @@
             </section>
 
             <section class="admin-card" id="medals-section">
-                <h3 style="font-family: 'Fredoka', sans-serif;"><i>🏆</i> Medallas y Logros Ganados</h3>
-                
-                <div id="badges-grid-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px;">
-                    {% for l in logros %}
-                    <div class="badge-item-card" id="logro-estudiante-{{ loop.index }}" style="border: 2px solid #FEEBC8; background: #FFFBF7; padding: 12px; border-radius: 15px; text-align: center;">
-                        <div style="font-size: 28px; margin-bottom: 5px;">
-                            {{ l.icono if l.icono else '🏅' }}
-                        </div>
-                        <h4 style="font-weight: 800; font-size: 13px; margin-bottom: 4px; color: var(--orange-dark);">{{ l.nombre }}</h4>
-                        <p style="font-size: 11px; color: var(--text-muted); line-height: 1.2; margin-bottom: 6px;">{{ l.descripcion }}</p>
-                        
-                        <small style="font-size: 10px; color: gray; display: block;">
-                            ⏱️ 
-                            {% if l.fecha %}
-                                {{ l.fecha.day }}/{{ l.fecha.month }}/{{ l.fecha.year }}
-                            {% else %}
-                                N/A
-                            {% endif %}
-                        </small>
-                    </div>
-                    {% else %}
-                    <div id="empty-badges-msg" style="color: var(--text-muted); text-align: center; width: 100%; padding: 20px;">
-                        El estudiante aún no ha desbloqueado ninguna medalla.
-                    </div>
-                    {% endfor %}
-                </div>
-            </section>
+    <h3 style="font-family: 'Fredoka', sans-serif;"><i>🏆</i> Medallas y Logros Ganados</h3>
+    
+    <div id="badges-grid-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px;">
+        {% for l in logros %}
+        <div class="badge-item-card" id="logro-estudiante-{{ loop.index }}" style="border: 2px solid #FEEBC8; background: #FFFBF7; padding: 12px; border-radius: 15px; text-align: center;">
+            
+            <!-- CAMBIO AQUÍ: Usamos una etiqueta <img> si 'l.icono' es una imagen, o mantenemos soporte mixto -->
+            <div style="width: 50px; height: 50px; margin: 0 auto 8px auto; display: flex; align-items: center; justify-content: center;">
+                {% if l.icono %}
+                    <img src="{{ l.icono }}" alt="{{ l.nombre }}" style="width: 100%; height: 100%; object-fit: contain;">
+                {% else %}
+                    <span style="font-size: 28px;">🏅</span>
+                {% endif %}
+            </div>
+
+            <!-- Nombre del logro -->
+            <h4 style="font-weight: 800; font-size: 13px; margin-bottom: 4px; color: var(--orange-dark);">{{ l.nombre }}</h4>
+            <p style="font-size: 11px; color: var(--text-muted); line-height: 1.2; margin-bottom: 6px;">{{ l.descripcion }}</p>
+            
+            <small style="font-size: 10px; color: gray; display: block;">
+                ⏱️ 
+                {% if l.fecha %}
+                    {{ l.fecha.day }}/{{ l.fecha.month }}/{{ l.fecha.year }}
+                {% else %}
+                    N/A
+                {% endif %}
+            </small>
+        </div>
+        {% else %}
+        <div id="empty-badges-msg" style="color: var(--text-muted); text-align: center; width: 100%; padding: 20px;">
+            El estudiante aún no ha desbloqueado ninguna medalla.
+        </div>
+        {% endfor %}
+    </div>
+</section>
 
         </div>
     </main>
