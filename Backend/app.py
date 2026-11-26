@@ -37,9 +37,12 @@ class ActualizarPasswordRequest(BaseModel):
     nueva_contrasena: str
 
 # Definición de rutas base de directorios
-BASE_DIR = Path(__file__).resolve().parent
-TEMPLATES_DIR = os.path.abspath(os.path.join(BASE_DIR,"..", "templates"))
-STATIC_DIR = os.path.abspath(os.path.join(BASE_DIR,"..", "static"))
+BASE_DIR = Path(__file__).resolve().parent          # .../src/Backend
+PROJECT_ROOT = BASE_DIR.parent                       # .../src
+FRONTEND_DIR = PROJECT_ROOT / "Frontend"
+
+TEMPLATES_DIR = os.path.abspath(os.path.join(FRONTEND_DIR, "templates"))
+STATIC_DIR = os.path.abspath(os.path.join(FRONTEND_DIR, "static"))
 STORAGE_PHYSICAL_DIR = os.path.abspath(os.path.join(BASE_DIR, "storage"))
 
 print(f"📂 Buscando templates en: {TEMPLATES_DIR}")
@@ -48,9 +51,8 @@ print(f"📂 Buscando static en: {STATIC_DIR}")
 templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 
 # Montaje de archivos estáticos con validación de seguridad
-if os.path.exists(STATIC_DIR):
+if os.path.isdir(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
-    print(f"✅ Carpeta static cargada correctamente desde: {STATIC_DIR}")
 else:
     print(f"⚠️ Advertencia: No se encontró la carpeta static en: {STATIC_DIR}")
 
