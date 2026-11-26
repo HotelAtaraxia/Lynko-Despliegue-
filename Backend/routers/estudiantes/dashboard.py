@@ -101,7 +101,7 @@ def dashboard_estudiante_principal(id_usuario: int, request: Request):
     }
     
     print("🟢 3. Renderizando plantilla final con éxito...")
-    return templates.TemplateResponse(request=request, name="inicio_Lynko.html", context=contexto)
+    return templates.TemplateResponse(request=request, name="inicio_lynko.html", context=contexto)
 
 @router.get("/perfil-estudiante/{id_usuario}", response_class=HTMLResponse)
 def vista_perfil(id_usuario: int, request: Request):
