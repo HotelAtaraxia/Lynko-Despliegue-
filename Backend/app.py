@@ -37,7 +37,7 @@ class ActualizarPasswordRequest(BaseModel):
     nueva_contrasena: str
 
 # Definición de rutas base de directorios
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 TEMPLATES_DIR = os.path.abspath(os.path.join(BASE_DIR, "templates"))
 STATIC_DIR = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STORAGE_PHYSICAL_DIR = os.path.abspath(os.path.join(BASE_DIR, "storage"))
