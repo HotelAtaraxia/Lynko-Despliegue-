@@ -1,0 +1,39 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Variables de entorno y secretos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Bytecode y cachés de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Bases de datos locales y respaldos sensibles
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+
+# Archivos temporales y del sistema operativo
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+!.vscode/settings.json
