@@ -38,14 +38,16 @@ class ActualizarPasswordRequest(BaseModel):
 
 # Definición de rutas base de directorios
 BASE_DIR = Path(__file__).resolve().parent  
-TEMPLATES_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "Frontend", "templates"))
-STATIC_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "Frontend", "static"))
+TEMPLATES_DIR = os.path.abspath(os.path.join(BASE_DIR, "templates"))
+STATIC_DIR = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STORAGE_PHYSICAL_DIR = os.path.abspath(os.path.join(BASE_DIR, "storage"))
 
 print(f"📂 Buscando templates en: {TEMPLATES_DIR}")
 print(f"📂 Buscando static en: {STATIC_DIR}")
 
 templates = Jinja2Templates(directory=TEMPLATES_DIR)
+
+app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
 # Montaje de archivos estáticos con validación de seguridad
 if os.path.exists(STATIC_DIR):
