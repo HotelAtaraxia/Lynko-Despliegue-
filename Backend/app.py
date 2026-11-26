@@ -37,7 +37,7 @@ class ActualizarPasswordRequest(BaseModel):
     nueva_contrasena: str
 
 # Definición de rutas base de directorios
-BASE_DIR = Path(__file__).resolve().parent  
+BASE_DIR = Path(__file__).resolve().parent.parent.parent 
 TEMPLATES_DIR = os.path.abspath(os.path.join(BASE_DIR, "templates"))
 STATIC_DIR = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STORAGE_PHYSICAL_DIR = os.path.abspath(os.path.join(BASE_DIR, "storage"))
@@ -45,7 +45,7 @@ STORAGE_PHYSICAL_DIR = os.path.abspath(os.path.join(BASE_DIR, "storage"))
 print(f"📂 Buscando templates en: {TEMPLATES_DIR}")
 print(f"📂 Buscando static en: {STATIC_DIR}")
 
-templates = Jinja2Templates(directory=TEMPLATES_DIR)
+templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 
 app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 
